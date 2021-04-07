@@ -10,6 +10,8 @@ use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\ContactForm;
 
+use app\models\Project;
+
 class SiteController extends Controller
 {
     /**
@@ -124,5 +126,20 @@ class SiteController extends Controller
     public function actionAbout()
     {
         return $this->render('about');
+    }
+    
+    public function actionProject()
+    {
+        $cats = Project::find()->all();
+        foreach ($cats AS $cat):
+            $keywords = $cat->keywords;
+            foreach ($keywords AS $key):
+                echo $key->keyword->name;
+            endforeach;
+            
+            echo $cat->name;
+            echo "<br>";
+        endforeach;
+        //return $this->render('about');
     }
 }

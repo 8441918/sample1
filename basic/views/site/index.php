@@ -2,15 +2,27 @@
 
 /* @var $this yii\web\View */
 
-$this->title = 'My Yii Application';
+$this->title = 'Привет';
 ?>
 <div class="site-index">
 
     <div class="jumbotron">
-        <h1>Congratulations!</h1>
+        <h1>Знакомимся</h1>
 
-        <p class="lead">You have successfully created your Yii-powered application.</p>
-
+        <p class="lead">
+            Так получилось, что я начинаю искать работу и этот сайт написан
+            с единственной целью: рассказать о себе и выполненных мною проектах.
+        </p>
+        <p>
+        что должна уметь страница
+        <ul>
+            <li>отображенние списка проектов</li>
+            <li>информация по выбранному проекту</li>
+            <li>форма добавления и редактирования проекта</li>
+            <li>форма добавления и редактирования ключевых слов</li>
+        </ul>
+        </p>
+        
         <p><a class="btn btn-lg btn-success" href="http://www.yiiframework.com">Get started with Yii</a></p>
     </div>
 
