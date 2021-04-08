@@ -1,0 +1,1 @@
+<?=$model->keyword->name?>

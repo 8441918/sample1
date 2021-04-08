@@ -7,10 +7,16 @@ use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\web\Response;
 use yii\filters\VerbFilter;
+
+use yii\data\ActiveDataProvider;
+
+
+use yii\db\Query;
 use app\models\LoginForm;
 use app\models\ContactForm;
 
 use app\models\Project;
+
 
 class SiteController extends Controller
 {
@@ -63,7 +69,14 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        return $this->render('index');
+        $query = new Query();
+        $dataProvider = new ActiveDataProvider([
+            'query' => $query->from('project_list'),
+            'pagination' => [
+                'pageSize' => 10,
+            ],
+        ]);
+        return $this->render('index/index', ['dataProvider'=>$dataProvider]);
     }
 
     /**
@@ -126,20 +139,5 @@ class SiteController extends Controller
     public function actionAbout()
     {
         return $this->render('about');
-    }
-    
-    public function actionProject()
-    {
-        $cats = Project::find()->all();
-        foreach ($cats AS $cat):
-            $keywords = $cat->keywords;
-            foreach ($keywords AS $key):
-                echo $key->keyword->name;
-            endforeach;
-            
-            echo $cat->name;
-            echo "<br>";
-        endforeach;
-        //return $this->render('about');
     }
 }

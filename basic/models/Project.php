@@ -7,12 +7,12 @@ class Project extends ActiveRecord
 {
     public static function tableName()
     {
-        return 'ProjectList';
+        return 'project_list';
     }
     
     public function getKeywords()
     {
-        return $this->hasMany(ProjectKeyword::className(), ['projectId' => 'id']);
+        return $this->hasMany(ProjectKeyword::className(), ['project_id' => 'id']);
     }
 }
 
