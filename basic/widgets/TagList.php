@@ -1,5 +1,5 @@
 <?php
-namespace app\widgets\TagList;
+namespace app\widgets;
 use yii\base\Widget;
 use yii\data\ArrayDataProvider;
 use app\models\ProjectKeyword;
@@ -30,7 +30,7 @@ class TagList extends Widget
                     ],
                     'emptyText' => 'нет категорий',
                     'dataProvider'=>$this->provider,
-                    'itemView'=>'@app/widgets/TagList/_TagItem',
+                    'itemView'=>'_TagItem',
                     'summary' => '',
                 ]);
     }

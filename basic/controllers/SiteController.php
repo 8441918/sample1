@@ -140,4 +140,9 @@ class SiteController extends Controller
     {
         return $this->render('about');
     }
+    
+    public function actionProject($id)
+    {
+        return $this->render('project', ['id'=>$id]);
+    }
 }
